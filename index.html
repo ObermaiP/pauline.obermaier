@@ -77,11 +77,15 @@
             text-align: center;
 
             
-<div class="meine-fotos">
-  <img src="Bild Pauline.JPG" alt="Mein Porträt">
-  <img src="Pferde.JPG" alt="Pferde">
-  <img src="Berg bild.jpg" alt="Berge">
-  <img src="Katie.JPG" alt="Meine Hündin Katie">
+
+<div class="slideshow">
+  <img id="slideBild" src="Bild Pauline.JPG" alt="Meine Fotos">
+
+  <div class="slide-steuerung">
+    <button type="button" onclick="vorherigesBild()">❮ Zurück</button>
+    <span id="slideNummer">1 / 4</span>
+    <button type="button" onclick="naechstesBild()">Weiter ❯</button>
+  </div>
 </div>
 
 <style>
@@ -98,7 +102,37 @@
   object-fit: cover;
   border-radius: 8px;
 }
-</style>
+
+.slideshow {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.slideshow img {
+  width: 100%;
+  height: 350px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.slide-steuerung {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.slide-steuerung button {
+  padding: 8px 14px;
+  cursor: pointer;
+  background: #003366;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+    </style>
 
         }
         .about-image img {
@@ -425,6 +459,48 @@
     });
 
     updateHobbySlider();
+</script>
+
+
+<div class="slideshow">
+  <img id="slideBild" src="Bild Pauline.JPG" alt="Meine Fotos">
+
+  <div class="slide-steuerung">
+    <button type="button" onclick="vorherigesBild()">❮ Zurück</button>
+    <span id="slideNummer">1 / 8</span>
+    <button type="button" onclick="naechstesBild()">Weiter ❯</button>
+  </div>
+</div>
+
+<script>
+const fotos = [
+  "Bild Pauline.JPG",
+  "Pferde.JPG",
+  "Berg bild.jpg",
+  "Katie.JPG",
+  "Interview.PNG",
+  "Schnitt.PNG",
+  "Radln.JPG",
+  "Venedig.jpeg"
+];
+
+let aktuellerSlide = 0;
+
+function zeigeBild() {
+  document.getElementById("slideBild").src = fotos[aktuellerSlide];
+  document.getElementById("slideNummer").textContent =
+    (aktuellerSlide + 1) + " / " + fotos.length;
+}
+
+function vorherigesBild() {
+  aktuellerSlide = (aktuellerSlide - 1 + fotos.length) % fotos.length;
+  zeigeBild();
+}
+
+function naechstesBild() {
+  aktuellerSlide = (aktuellerSlide + 1) % fotos.length;
+  zeigeBild();
+}
 </script>
 
 </body>
