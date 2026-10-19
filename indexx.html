@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>BR Mein Steckbrief – Pauline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        /* Banner oben */
+        header {
+            background: #003366; /* Dunkelblau */
+            color: #fff;
+            padding: 15px 20px;
+        }
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .header-top-title {
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+        .header-bottom {
+            text-align: center;
+            margin-top: 8px;
+        }
+        .header-bottom nav a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .header-bottom nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+        section {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* Überschriften fett + kursiv */
+        h2, h3 {
+            font-weight: bold;
+            font-style: italic;
+            margin-top: 0;
+        }
+
+        /* Über mich: Text + Bild nebeneinander */
+        .about-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .about-text {
+            flex: 2;
+            min-width: 250px;
+        }
+        .about-image {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        .about-image img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #003366;
+        }
+
+        /* Abstand zwischen Stichpunkten bei Interessen/Hobbys */
+        #interests ul {
+            list-style-position: inside;
+            padding-left: 0;
+        }
+        #interests ul li {
+            margin-bottom: 12px; /* Abstand zwischen den Punkten */
+        }
+
+        /* Hobby-Slider */
+        .hobby-slider {
+            position: relative;
+            max-width: 600px;
+            margin: 20px auto 0;
+        }
+        .hobby-slide-wrapper {
+            overflow: hidden;
+            border-radius: 6px;
+        }
+        .hobby-slides {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+        .hobby-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .hobby-slide img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        .hobby-slider-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .hobby-slider-button {
+            background: #003366;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .hobby-slider-button:disabled {
+            background: #ccc;
+            cursor: default;
+        }
+
+        /* Abteilungen-Slider */
+        .slider {
+            position: relative;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .slider-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .slider-button {
+            background: #003366;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .slider-button:disabled {
+            background: #ccc;
+            cursor: default;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .contact-list li {
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .about-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+            .header-bottom nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-top">
+        <div class="header-top-title">BR Mein Steckbrief</div>
+    </div>
+    <div class="header-bottom">
+        <nav>
+            <a href="#about">Über mich</a>
+            <a href="#interests">Interessen &amp; Hobbys</a>
+            <a href="#departments">Meine Abteilungen</a>
+            <a href="#career">Mein Werdegang</a>
+            <a href="#path">Mein Weg zur Ausbildung</a>
+            <a href="#contact">Kontakt</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- Über mich -->
+    <section id="about">
+        <h2>Über mich</h2>
+        <div class="about-wrapper">
+            <div class="about-text">
+                <p>Hallo, ich bin die Pauline. Ich bin 19 Jahre alt, mache seit September 2026 meine Ausbildung zur Kauffrau für audiovisuelle Medien.</p>
+            </div>
+            <div class="about-image">
+                <!-- Bild oben rechts – Dateinamen anpassen -->
+                <img src="pauline.jpg" alt="Pauline">
+            </div>
+        </div>
+    </section>
+
+    <!-- Interessen und Hobbys -->
+    <section id="interests">
+        <h2>Meine Interessen und Hobbys</h2>
+        <ul>
+            <li><strong>Pferde:</strong> Meine große Leidenschaft ist es, mit den Pferden Zeit zu verbringen, ob es Bodenarbeit, Stallarbeit oder ein schöner Ausritt ist.</li>
+
+            <li>Generell bin ich sehr <strong>tierlieb</strong> und gerne in der Natur unterwegs. Lange Runden mit der Golden Retriever Hündin Katie oder Zeit mit meinem Opa auf dem Bauernhof erfüllen mich sehr.</li>
+
+            <li><strong>Gravelbike</strong> fahren und Zeit in den <strong>Bergen</strong> machen mir besonders viel Freude.</li>
+
+            <li><strong>Jugendradio:</strong> Ich bin in einer Jugendradio Redaktion tätig, was mir auch sehr viel Spaß macht.</li>
+
+            <li><strong>Theater:</strong> Seit ich ein kleines Mädchen bin, verbringe ich gerne Zeit auf der Bühne und schlüpfe liebend gerne in andere Rollen.</li>
+
+            <li>Ich bin eigentlich immer unterwegs mit meinen Freunden oder meiner Familie und erkunde auch gerne mal neue Städte und Länder.</li>
+        </ul>
+
+        <!-- Hobbys als Slider unten -->
+        <div class="hobby-slider" id="hobby-slider">
+            <div class="hobby-slide-wrapper">
+                <div class="hobby-slides">
+                    <!-- Jede Slide ein Bild – Dateinamen anpassen -->
+                    <div class="hobby-slide">
+                        <img src="pferde.jpg" alt="Pferde">
+                    </div>
+                    <div class="hobby-slide">
+                        <img src="katie.jpg" alt="Katie">
+                    </div>
+                    <div class="hobby-slide">
+                        <img src="bauernhof.jpg" alt="Bauernhof">
+                    </div>
+                    <div class="hobby-slide">
+                        <img src="gravelbike.jpg" alt="Gravelbike">
+                    </div>
+                    <div class="hobby-slide">
+                        <img src="berge.jpg" alt="Berge">
+                    </div>
+                    <div class="hobby-slide">
+                        <img src="jugendradio.jpg" alt="Jugendradio">
+                    </div>
+                    <div class="hobby-slide">
+                        <img src="freunde.jpg" alt="Freunde">
+                    </div>
+                    <div class="hobby-slide">
+                        <img src="familie.jpg" alt="Familie">
+                    </div>
+                    <div class="hobby-slide">
+                        <img src="stadt.jpg" alt="Stadt">
+                    </div>
+                    <div class="hobby-slide">
+                        <img src="reise.jpg" alt="Reisen">
+                    </div>
+                </div>
+            </div>
+            <div class="hobby-slider-controls">
+                <button class="hobby-slider-button" id="hobby-prev">&larr; Zurück</button>
+                <button class="hobby-slider-button" id="hobby-next">Weiter &rarr;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Abteilungen mit Slider -->
+    <section id="departments">
+        <h2>Meine Abteilungen</h2>
+        <div class="slider" id="department-slider">
+            <div class="slides">
+                <div class="slide">
+                    <h3>Bürgerdialog und Politischer Talk</h3>
+                    <p>Da durfte ich bei den verschiedenen Formaten sowohl in der Planung als auch bei der Umsetzung dabei sein.</p>
+                    <p><strong>Formate:</strong> Münchner Runde (hauptsächlich), Jetzt red i, Sonntags Stammtisch und Date or Break.</p>
+                </div>
+                <!-- Weitere Abteilungen kannst du hier als neue div.slide einfügen -->
+            </div>
+            <div class="slider-controls">
+                <button class="slider-button" id="prev-btn">&larr; Zurück</button>
+                <button class="slider-button" id="next-btn">Weiter &rarr;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Werdegang -->
+    <section id="career">
+        <h2>Mein Werdegang</h2>
+        <p>Städtische Realschule für Mädchen Rosenheim, FOS Rosenheim, Ausbildung beim BR.</p>
+    </section>
+
+    <!-- Weg zur Ausbildung -->
+    <section id="path">
+        <h2>Mein Weg zur Ausbildung</h2>
+        <p>Seit ich 12 Jahre alt bin, engagiere ich mich beim Jugendradio Galaxy in Rosenheim und konnte dort erste Erfahrungen in den Bereichen Radio, Schnitt, Interviewführung und Moderation sammeln. In den Ferien durfte ich außerdem regelmäßig bei einem Tontechniker hospitieren. Während meiner 11. Klasse an der FOS wechselten sich Praktikum und Unterricht ab. Dabei konnte ich zunächst in einem Ton- und Filmstudio und anschließend bei einem Online-Magazin praktische Erfahrungen sammeln.</p>
+        <p>Die vielseitige Arbeit in diesen Bereichen hat mir sehr gut gefallen. Da ich mein Fachabitur im Wirtschaftszweig absolviert habe, empfinde ich die Ausbildung zur Kauffrau für audiovisuelle Medien als eine passende Verbindung meiner bisherigen Erfahrungen und Interessen.</p>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="contact">
+        <h2>Kontakt</h2>
+        <ul class="contact-list">
+            <li>Telefon: +49 89 590023921</li>
+            <li>E-Mail: <a href="mailto:pauline.obermaier@br.de">pauline.obermaier@br.de</a></li>
+        </ul>
+    </section>
+
+</div>
+
+<footer>
+    &copy; <span id="year"></span> Pauline – BR Mein Steckbrief
+</footer>
+
+<script>
+    // aktuelles Jahr
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Slider für Abteilungen
+    const deptSlider = document.getElementById('department-slider');
+    const deptSlidesContainer = deptSlider.querySelector('.slides');
+    const deptSlides = deptSlider.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    let deptIndex = 0;
+
+    function updateDeptSlider() {
+        const offset = -deptIndex * 100;
+        deptSlidesContainer.style.transform = 'translateX(' + offset + '%)';
+        prevBtn.disabled = deptIndex === 0;
+        nextBtn.disabled = deptIndex === deptSlides.length - 1;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (deptIndex > 0) {
+            deptIndex--;
+            updateDeptSlider();
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (deptIndex < deptSlides.length - 1) {
+            deptIndex++;
+            updateDeptSlider();
+        }
+    });
+
+    updateDeptSlider();
+
+    // Hobby-Slider
+    const hobbySlider = document.getElementById('hobby-slider');
+    const hobbySlidesContainer = hobbySlider.querySelector('.hobby-slides');
+    const hobbySlides = hobbySlider.querySelectorAll('.hobby-slide');
+    const hobbyPrev = document.getElementById('hobby-prev');
+    const hobbyNext = document.getElementById('hobby-next');
+    let hobbyIndex = 0;
+
+    function updateHobbySlider() {
+        const offset = -hobbyIndex * 100;
+        hobbySlidesContainer.style.transform = 'translateX(' + offset + '%)';
+        hobbyPrev.disabled = hobbyIndex === 0;
+        hobbyNext.disabled = hobbyIndex === hobbySlides.length - 1;
+    }
+
+    hobbyPrev.addEventListener('click', () => {
+        if (hobbyIndex > 0) {
+            hobbyIndex--;
+            updateHobbySlider();
+        }
+    });
+
+    hobbyNext.addEventListener('click', () => {
+        if (hobbyIndex < hobbySlides.length - 1) {
+            hobbyIndex++;
+            updateHobbySlider();
+        }
+    });
+
+    updateHobbySlider();
+</script>
+
+</body>
+</html>
