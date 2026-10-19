@@ -75,6 +75,31 @@
             flex: 1;
             min-width: 200px;
             text-align: center;
+
+            
+<div class="meine-fotos">
+  <img src="Bild Pauline.JPG" alt="Mein Porträt">
+  <img src="Pferde.JPG" alt="Pferde">
+  <img src="Berg bild.jpg" alt="Berge">
+  <img src="Katie.JPG" alt="Meine Hündin Katie">
+</div>
+
+<style>
+.meine-fotos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.meine-fotos img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+</style>
+
         }
         .about-image img {
             width: 220px;
