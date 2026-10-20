@@ -147,14 +147,19 @@
     </style>
 
         }
-.about-image img {
-    display: block;
-    width: 80px;
-    height: 80px;
+#about .about-image {
+    flex: 0 0 30px !important;
+    width: 30px !important;
+    min-width: 30px !important;
+}
+
+#about .about-image img {
+    width: 30px !important;
+    height: 30px !important;
+    max-width: 30px !important;
+    border: none !important;
     border-radius: 50%;
-    object-fit: cover;
-    border: none;
-    margin: 0 auto;
+    object-fit: cover;;
         }
 
         /* Abstand zwischen Stichpunkten bei Interessen/Hobbys */
